@@ -1,10 +1,9 @@
 import './App.css';
+import Cat from './components/Cat/Cat'
 
 function App() {
   return (
-    <div className="App">
-Worl
-    </div>
+    <Cat/>
   );
 }
 
