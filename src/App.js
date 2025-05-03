@@ -1,14 +1,9 @@
-import './App.css';
-import Cat from './components/Cat/Cat'
-import Navbar from './components/Navbar/Navbar';
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './app/router/router';
 
 function App() {
-  return (
-    <>
-    <Cat/>
-    <Navbar/>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
