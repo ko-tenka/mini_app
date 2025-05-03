@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../Layout/Layout'; // Путь к компоненту Layout
 import Favorite from '../../components/Favorite/Favorite'; // Путь к компоненту Favorite
-import Cat from '../../components/Cat/Cat';
+import ProductList from '../../components/ProductList/ProductList';
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/',
-        element: <Cat />,
+        element: <ProductList />,
       },
       {
         path: '*',
