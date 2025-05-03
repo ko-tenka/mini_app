@@ -1,7 +1,8 @@
+import './Favorite.css'
 function Favorite() {
     return (
-      <div>
-        <h2>Избранное</h2>
+      <div className="favorite">
+        Избранное
         {/* Дополнительный контент для страницы Избранного */}
       </div>
     );
