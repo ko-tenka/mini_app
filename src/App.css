@@ -1,14 +1,21 @@
-*{
-  /* margin: 0;
+html, body {
+  margin: 0;
   padding: 0;
-  box-sizing: border-box; */
+  font-family: sans-serif;
+  background-color: var(--tg-theme-bg-color, #ffffff);
+  color: var(--tg-theme-text-color, #000000);
+  height: 100%;
 }
 
-body {
-  background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.cat{
-    width: 100px;
+.content {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 80px; /* отступ под навбар */
+  box-sizing: border-box;
 }
