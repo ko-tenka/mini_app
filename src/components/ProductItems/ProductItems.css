@@ -1,12 +1,14 @@
+/* Стиль для карточек */
 .product {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--tg-theme-button-color);
-    padding: 15px;
-    width: 170px;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1;
 }
 
-
+/* Стиль для изображений */
 .img {
     width: 100%;
     background: lightgray;
@@ -15,10 +17,14 @@
     background: var(--tg-theme-button-color);
 }
 
+/* Описание товара */
 .description {
     font-size: 0.8em;
 }
 
+/* Кнопка "Добавить в корзину" */
 .add-btn {
     width: 100%;
 }
+
+/* Стили для контейнера карточек */

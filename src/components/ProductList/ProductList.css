@@ -1,30 +1,20 @@
-.item {
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
 .list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);  /* 2 карточки на мобильных */
+    gap: 1px;  /* сильно уменьшаем расстояние между карточками */
     justify-items: center;
-    max-width: 600px; /* Примерно 3 * (карточка + gap) */
-    margin: 0 auto;
+    /* width: 80%; */
+
 }
 
 @media (min-width: 900px) {
     .list {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 899px) {
-    .list {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);  /* 3 карточки на больших экранах */
     }
 }
 
 @media (max-width: 600px) {
     .list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);  /* 2 карточки на экранах до 600px */
     }
 }
