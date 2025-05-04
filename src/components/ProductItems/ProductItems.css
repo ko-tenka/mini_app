@@ -1,30 +1,25 @@
-/* Стиль для карточек */
 .product {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--tg-theme-button-color);
     width: 100%;
+    max-width: 180px;
     box-sizing: border-box;
-    flex: 1;
+    margin: auto;
 }
 
-/* Стиль для изображений */
+
 .img {
     width: 100%;
-    background: lightgray;
     height: 240px;
-    margin: 0 auto;
-    background: var(--tg-theme-button-color);
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
 }
 
-/* Описание товара */
 .description {
     font-size: 0.8em;
 }
 
-/* Кнопка "Добавить в корзину" */
 .add-btn {
     width: 100%;
 }
-
-/* Стили для контейнера карточек */

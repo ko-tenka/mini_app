@@ -1,20 +1,19 @@
 .list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 карточки на мобильных */
-    gap: 1px;  /* сильно уменьшаем расстояние между карточками */
-    justify-items: center;
-    /* width: 80%; */
-
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    justify-content: center;
 }
+
 
 @media (min-width: 900px) {
     .list {
-        grid-template-columns: repeat(3, 1fr);  /* 3 карточки на больших экранах */
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 
 @media (max-width: 600px) {
     .list {
-        grid-template-columns: repeat(2, 1fr);  /* 2 карточки на экранах до 600px */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
