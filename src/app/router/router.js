@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../Layout/Layout'; // Путь к компоненту Layout
 import Favorite from '../../components/Favorite/Favorite'; // Путь к компоненту Favorite
 import ProductList from '../../components/ProductList/ProductList';
+import Bag from '../../components/Bag/Bag';
 
 export const router = createBrowserRouter([
   {
@@ -9,12 +10,16 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: '/',
+        element: <ProductList />,
+      },
+      {
         path: '/favorite',
         element: <Favorite />,
       },
       {
-        path: '/',
-        element: <ProductList />,
+        path: '/bag',
+        element: <Bag />,
       },
       {
         path: '*',

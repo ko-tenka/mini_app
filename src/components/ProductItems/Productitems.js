@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProductItems.css';
+import Heart from './assets/heart.png'
 
 const ProductItem = ({product, className, onAdd}) => {
 
@@ -9,9 +10,15 @@ const ProductItem = ({product, className, onAdd}) => {
 
     return (
         <div className={'product ' + className}>
-            {product.img && (
-                <img src={product.img} alt={product.title} className="img" />
-            )}
+<div className='image-wrapper'>
+  {product.img && (
+    <img src={product.img} alt={product.title} className="img" />
+  )}
+  <img src={Heart} alt="heart" className="heart" />
+</div>
+
+
+            
             <div className={'title'}>{product.title}</div>
             <div className={'description'}>{product.description}</div>
             <div className={'price'}>
