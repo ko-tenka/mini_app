@@ -6,6 +6,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import Bag from '../../components/Bag/Bag';
 import ProductDetail from '../../components/ProductDetale/ProductDetale';
 import { CartProvider } from '../../app/Context/Context'; // Импортируем CartProvider
+import Checkout from '../../components/Checkout/Checkout'
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: '/product/:id',
         element: <ProductDetail />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />, // Новый маршрут для оформления заказа
       },
       {
         path: '*',

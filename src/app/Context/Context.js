@@ -1,27 +1,33 @@
-// app/Context/Context.js
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 // Создаем контекст корзины
-const CartContext = createContext();
+export const CartContext = createContext();
 
-const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+// Провайдер корзины
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
 
-    // Функция для добавления товара в корзину
-    const addToCart = (product) => {
-        setCart((prevCart) => [...prevCart, product]);
-    };
+  // Функция для добавления товара в корзину
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
 
-    // Функция для удаления товара из корзины
-    const removeFromCart = (id) => {
-        setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-    };
+  // Функция для удаления товара из корзины
+  const removeFromCart = (productId) => {
+    setCart((prevCart) => prevCart.filter(item => item.id !== productId));
+  };
 
-    return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
-            {children}
-        </CartContext.Provider>
-    );
+  // Функция для очистки корзины
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
-export { CartContext, CartProvider };
+// Хук для удобного доступа к контексту
+export const useCart = () => useContext(CartContext);

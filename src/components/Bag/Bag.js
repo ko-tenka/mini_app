@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../app/Context/Context'; // Импортируем CartContext
 import './Bag.css';
+import { Link } from 'react-router-dom';
 
 const Bag = () => {
     const { cart, removeFromCart } = useContext(CartContext);  // Получаем корзину и функцию для удаления
@@ -33,6 +34,9 @@ const Bag = () => {
             </ul>
             <div className="cart-total">
                 <h3>Итого: {cart.reduce((total, item) => total + item.price, 0)} руб.</h3>
+                <Link to="/checkout" className="checkout-link">
+                  Перейти к оформлению
+                </Link>
             </div>
         </div>
     );

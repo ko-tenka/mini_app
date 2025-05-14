@@ -69,3 +69,18 @@
     font-weight: bold;
     text-align: center;
 }
+
+.checkout-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .checkout-link:hover {
+    background-color: #218838;
+  }
+  
