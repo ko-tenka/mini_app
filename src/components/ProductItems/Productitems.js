@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductItems.css';
-import Heart from './assets/heart.png'
+// import Heart from './assets/heart.png'
 import { Link } from 'react-router-dom';
 
 const ProductItem = ({product, className, onAdd}) => {
@@ -11,7 +11,7 @@ const ProductItem = ({product, className, onAdd}) => {
                 {product.img && (
                     <img src={product.img} alt={product.title} className="img" />
                 )}
-                <img src={Heart} alt="heart" className="heart" />
+                {/* <img src={Heart} alt="heart" className="heart" /> */}
             </div>      
             <div className={'title'}>{product.title}</div>
             <div className={'description'}>{product.description}</div>

@@ -1,6 +1,6 @@
 import './Navbar.css';
 import Home from './assets/home.png';
-import Heart from './assets/heart.png';
+// import Heart from './assets/heart.png';
 import User from './assets/user.png';
 import Bag from './assets/bag.png';
 
@@ -16,10 +16,10 @@ function Navbar() {
             <div>главная</div>
         </button>
 
-        <button onClick={() => navigate('/favorite')} className="nav-item">
+        {/* <button onClick={() => navigate('/favorite')} className="nav-item">
             <img src={Heart} className="icon" alt="избранное" />
             <div>избранное</div>
-        </button>
+        </button> */}
 
         <button onClick={() => navigate('/bag')} className="nav-item">
             <img src={Bag} className="icon" alt="избранное" />
