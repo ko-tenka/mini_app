@@ -3,6 +3,7 @@ import Layout from '../Layout/Layout'; // Путь к компоненту Layou
 import Favorite from '../../components/Favorite/Favorite'; // Путь к компоненту Favorite
 import ProductList from '../../components/ProductList/ProductList';
 import Bag from '../../components/Bag/Bag';
+import ProductDetail from '../../components/ProductDetale/ProductDetale';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: '/bag',
         element: <Bag />,
+      },
+      {
+        path: '/product/:id',
+        element: <ProductDetail />,
       },
       {
         path: '*',

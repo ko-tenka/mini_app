@@ -1,0 +1,27 @@
+.product-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
+    min-height: 50vh;
+    padding: 20px;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.product-info h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.product-info p {
+    margin: 5px 0;
+    font-size: 18px;
+}
