@@ -1,14 +1,20 @@
+// router.js (или файл с роутером)
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../Layout/Layout'; // Путь к компоненту Layout
 import Favorite from '../../components/Favorite/Favorite'; // Путь к компоненту Favorite
 import ProductList from '../../components/ProductList/ProductList';
 import Bag from '../../components/Bag/Bag';
 import ProductDetail from '../../components/ProductDetale/ProductDetale';
+import { CartProvider } from '../../app/Context/Context'; // Импортируем CartProvider
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: (
+      <CartProvider> {/* Обертываем роутер в CartProvider */}
+        <Layout />
+      </CartProvider>
+    ),
     children: [
       {
         path: '/',
@@ -33,4 +39,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-

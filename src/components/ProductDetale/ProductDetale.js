@@ -1,11 +1,14 @@
-import React from 'react';
+// components/ProductDetale/ProductDetale.js
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../app/ProductData/ProductData';  // Импортируем массив продуктов
+import { CartContext } from '../../app/Context/Context';  // Импортируем CartContext
 import './ProductDetale.css';
+import { products } from '../../app/ProductData/ProductData';
 
 const ProductDetail = () => {
-    const { id } = useParams(); // получаем id из URL
+    const { id } = useParams();
     const product = products.find(item => item.id === id);
+    const { addToCart } = useContext(CartContext);  // Используем контекст для добавления товара в корзину
 
     if (!product) {
         return <div>Товар не найден</div>;
@@ -18,6 +21,7 @@ const ProductDetail = () => {
                 <h2>{product.title}</h2>
                 <p>{product.description}</p>
                 <p>Цена: {product.price} руб.</p>
+                <button onClick={() => addToCart(product)}>Добавить в корзину</button>
             </div>
         </div>
     );
