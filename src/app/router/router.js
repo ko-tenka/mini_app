@@ -7,6 +7,7 @@ import Bag from '../../components/Bag/Bag';
 import ProductDetail from '../../components/ProductDetale/ProductDetale';
 import { CartProvider } from '../../app/Context/Context'; // Импортируем CartProvider
 import Checkout from '../../components/Checkout/Checkout'
+import Profile from '../../components/Profile/Profile'
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/bag',
         element: <Bag />,
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
       },
       {
         path: '/product/:id',

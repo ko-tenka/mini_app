@@ -26,7 +26,7 @@ function Navbar() {
             <div>корзина</div>
         </button>
 
-        <button className="nav-item">
+        <button onClick={() => navigate('/profile')} className="nav-item">
             <img src={User} className="icon" alt="профиль" />
             <div>профиль</div>
         </button>
