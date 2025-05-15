@@ -6,12 +6,25 @@ import emailjs from 'emailjs-com'; // Импортируем EmailJS
 const Checkout = () => {
   const { cart, clearCart } = useContext(CartContext); // Получаем корзину и функцию очистки
   const [name, setName] = useState(''); // Имя покупателя
-  const [address, setAddress] = useState(''); // Адрес покупателя
+  const [address_city, setAddress] = useState(''); // Адрес покупателя
+  const [address_polny, setAddress2] = useState(''); // Адрес покупателя
   const [isDataValid, setIsDataValid] = useState(true); // Статус валидации данных
   const [isConfirmed, setIsConfirmed] = useState(false); // Статус подтверждения данных
   const [paymentSuccess, setPaymentSuccess] = useState(false); // Статус успешной оплаты
 
   const total = cart.reduce((total, item) => total + item.price, 0);
+
+  // Функция для получения текущего времени в формате: "день.месяц.год часы:минуты:секунды"
+  const timeNow = () => {
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Месяцы начинаются с 0
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    return `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
+  };
 
   useEffect(() => {
     // Проверяем параметр в URL
@@ -25,15 +38,17 @@ const Checkout = () => {
   const handleConfirm = (e) => {
     e.preventDefault();
 
-    if (!name || !address) {
+    if (!name || !address_city || !address_polny) {
       setIsDataValid(false); // Если не заполнены поля, показываем ошибку
       return;
     }
 
     // Создаем объект данных для отправки на email
     const templateParams = {
+      time: timeNow(), // Добавляем время
       name: name,
-      address: address,
+      address: address_city,
+      address2: address_polny,
       totalAmount: total,
     };
 
@@ -72,11 +87,22 @@ const Checkout = () => {
             </div>
             <div>
               <label>
+                Город доставки:
+                <input
+                  type="text"
+                  value={address_city}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Введите город"
+                />
+              </label>
+            </div>
+            <div>
+              <label>
                 Адрес доставки:
                 <input
                   type="text"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
+                  value={address_polny}
+                  onChange={(e) => setAddress2(e.target.value)}
                   placeholder="Введите адрес"
                 />
               </label>
@@ -96,8 +122,10 @@ const Checkout = () => {
           <div className="checkout-confirmation">
             <h3>Подтверждение заказа</h3>
             <p><strong>Имя:</strong> {name}</p>
-            <p><strong>Адрес:</strong> {address}</p>
+            <p><strong>Ваш город:</strong> {address_city}</p>
+            <p><strong>Ваш адрес:</strong> {address_polny}</p>
             <p><strong>Итого:</strong> {total} руб.</p>
+            <p><strong>Время оформления:</strong> {timeNow()}</p> {/* Показываем время оформления */}
             <p>Данные сохранены!</p>
           </div>
         )}
